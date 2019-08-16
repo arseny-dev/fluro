@@ -10,7 +10,7 @@ const AboutPanel = () => {
 			<MDBRow className="rowtop">
 				<MDBCol md="4">
 					<MDBIcon icon="history" size="3x" className="red-text" />
-					<h5 className="font-weight-bold my-4">+7 Yesrs</h5>
+					<h5 className="font-weight-bold my-4">+7 Years</h5>
 					<p className="mb-md-0 mb-5">Fluro fire has been in the fire industry for over 7 years</p>
 				</MDBCol>
 				<MDBCol md="4">
