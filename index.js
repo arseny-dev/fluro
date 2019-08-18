@@ -39,11 +39,11 @@ app.post('/api/form', function(req, res) {
 		}
 	});
 });
-// app.get('/', function(req, res) {
-// 	//	res.sendFile(path.join(__dirname + '/client/build/index.html'));
-// 	//	res.render('client/build/index.html');
-// 	res.send({ res: 'ok' });
-// });
+app.get('/', function(req, res) {
+	//	res.sendFile(path.join(__dirname + '/client/build/index.html'));
+	//	res.render('client/build/index.html');
+	res.send({ res: 'ok' });
+});
 app.use(function(err, req, res, next) {
 	// set locals, only providing error in development
 	res.locals.message = err.message;
