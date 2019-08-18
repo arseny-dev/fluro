@@ -39,6 +39,11 @@ app.post('/api/form', function(req, res) {
 		}
 	});
 });
+// app.get('/', function(req, res) {
+// 	//	res.sendFile(path.join(__dirname + '/client/build/index.html'));
+// 	//	res.render('client/build/index.html');
+// 	res.send({ res: 'ok' });
+// });
 app.use(function(err, req, res, next) {
 	// set locals, only providing error in development
 	res.locals.message = err.message;
@@ -47,4 +52,4 @@ app.use(function(err, req, res, next) {
 	res.status(err.status || 500);
 	res.send('error'); //this or res.status(err.status || 500).send('error')
 });
-app.listen(3030);
+app.listen(5000);
