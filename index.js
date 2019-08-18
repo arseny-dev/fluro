@@ -5,8 +5,8 @@ var app = express();
 const cors = require('cors');
 const logger = require('morgan');
 
-var api_key = '5cdbb4a50502b7c2fb3b963d8e8992ae-c50f4a19-4d52fa79';
-var domain = 'sandbox37fc769b11b34982a4206248fe1dfe2e.mailgun.org';
+var api_key = '90533bcac8b17e228dcd5e6f6392b38c-898ca80e-39ae0c01';
+var domain = 'sandboxf7223b77d29e4d7f8a2876280ff01d3f.mailgun.org';
 app.use(
 	cors({
 		origin: '*',
