@@ -12,6 +12,7 @@
 		"jade": "*",
 		"logger": "^0.0.1",
 		"mailgun-js": "0.5",
-		"morgan": "^1.9.1"
+		"morgan": "^1.9.1",
+		"node-sass": "^4.12.0"
 	}
 }
