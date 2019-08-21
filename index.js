@@ -22,8 +22,9 @@ app.post('/api/form', function(req, res) {
 	console.log('clicked');
 	console.log(req);
 	console.log('clicked1');
-	var nodemailer = require('nodemailer');
 	console.log('clicked2');
+
+	var nodemailer = require('nodemailer');
 	var transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
