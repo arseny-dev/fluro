@@ -19,36 +19,42 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/api/form', function(req, res) {
-	console.log(req.body);
-	var mailgun = new Mailgun({ apiKey: api_key, domain: domain });
-	var data = {
-		from: 'Contact me <' + req.body.email + '>',
+	var nodemailer = require('nodemailer');
+
+	var transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'arseny910124@gmail.com',
+			pass: 'qwer1234!@#$%^&*('
+		}
+	});
+	console.log(transporter);
+
+	var mailOptions = {
+		from: req.body.email,
 		to: 'arseny910124@gmail.com',
 		subject: req.body.subject,
 		text: req.body.name + ' sent ' + req.body.message
 	};
-	console.log(data);
-	mailgun.messages().send(data, function(err, body) {
-		if (err) {
-			//	res.render('error', { error: err });
-			res.send({ res: 'error' });
-			console.log('got an error: ', err);
+	console.log(mailOptions);
+
+	transporter.sendMail(mailOptions, function(error, info) {
+		if (error) {
+			console.log(error);
 		} else {
-			//	res.render('submitted', { email: req.params.mail });
-			res.send({ res: 'ok' });
+			console.log('Email sent: ' + info.response);
 		}
 	});
 });
 app.get('/', function(req, res) {
-	//	res.sendFile(path.join(__dirname + '/client/build/index.html'));
-	//	res.render('client/build/index.html');
+	//  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+	//  res.render('client/build/index.html');
 	res.send({ res: 'ok' });
 });
 app.use(function(err, req, res, next) {
 	// set locals, only providing error in development
 	res.locals.message = err.message;
-	res.locals.error = req.app.get('env') === 'development' ? err : {};
-	// render the error page
+	res.locals.error = req.app.get('env') === 'development' ? err : {}; // render the error page
 	res.status(err.status || 500);
 	res.send('error'); //this or res.status(err.status || 500).send('error')
 });
