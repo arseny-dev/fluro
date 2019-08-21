@@ -19,8 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/api/form', function(req, res) {
+	console.log('clicked');
 	var nodemailer = require('nodemailer');
-
 	var transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
