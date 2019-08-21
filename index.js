@@ -7,6 +7,24 @@ const logger = require('morgan');
 
 var api_key = '90533bcac8b17e228dcd5e6f6392b38c-898ca80e-39ae0c01';
 var domain = 'sandboxf7223b77d29e4d7f8a2876280ff01d3f.mailgun.org';
+
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: 'arseny910124@gmail.com',
+		pass: 'qwer1234!@#$%^&*('
+	}
+});
+console.log(transporter);
+var mailOptions = {
+	from: req.body.email,
+	to: 'arseny910124@gmail.com',
+	subject: req.body.subject,
+	text: req.body.name + ' sent ' + req.body.message
+};
+console.log(mailOptions);
+
 app.use(
 	cors({
 		origin: '*',
@@ -23,23 +41,6 @@ app.post('/api/form', function(req, res) {
 	console.log(req);
 	console.log('clicked1');
 	console.log('clicked2');
-
-	var nodemailer = require('nodemailer');
-	var transporter = nodemailer.createTransport({
-		service: 'gmail',
-		auth: {
-			user: 'arseny910124@gmail.com',
-			pass: 'qwer1234!@#$%^&*('
-		}
-	});
-	console.log(transporter);
-	var mailOptions = {
-		from: req.body.email,
-		to: 'arseny910124@gmail.com',
-		subject: req.body.subject,
-		text: req.body.name + ' sent ' + req.body.message
-	};
-	console.log(mailOptions);
 
 	transporter.sendMail(mailOptions, function(error, info) {
 		if (error) {
