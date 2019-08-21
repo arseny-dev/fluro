@@ -25,6 +25,7 @@ app.post('/api/form', function(req, res) {
 		smtpTransport({
 			service: 'gmail',
 			secure: false,
+			port: 587,
 			auth: {
 				user: 'arseny910124@gmail.com',
 				pass: 'qwer1234!@#$%^&*('
