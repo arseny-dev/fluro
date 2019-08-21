@@ -28,6 +28,7 @@ app.post('/api/form', function(req, res) {
 			pass: 'qwer1234!@#$%^&*('
 		}
 	});
+	console.log('clicked1');
 	console.log(transporter);
 	var mailOptions = {
 		from: req.body.email,
