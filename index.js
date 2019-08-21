@@ -3,23 +3,6 @@ var app = express();
 const cors = require('cors');
 const logger = require('morgan');
 
-var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport({
-	service: 'gmail',
-	auth: {
-		user: 'arseny910124@gmail.com',
-		pass: 'qwer1234!@#$%^&*('
-	}
-});
-console.log(transporter);
-var mailOptions = {
-	from: req.body.email,
-	to: 'arseny910124@gmail.com',
-	subject: req.body.subject,
-	text: req.body.name + ' sent ' + req.body.message
-};
-console.log(mailOptions);
-
 app.use(
 	cors({
 		origin: '*',
@@ -36,7 +19,22 @@ app.post('/api/form', function(req, res) {
 	console.log(req);
 	console.log('clicked1');
 	console.log('clicked2');
-
+	var nodemailer = require('nodemailer');
+	var transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'arseny910124@gmail.com',
+			pass: 'qwer1234!@#$%^&*('
+		}
+	});
+	console.log(transporter);
+	var mailOptions = {
+		from: req.body.email,
+		to: 'arseny910124@gmail.com',
+		subject: req.body.subject,
+		text: req.body.name + ' sent ' + req.body.message
+	};
+	console.log(mailOptions);
 	transporter.sendMail(mailOptions, function(error, info) {
 		if (error) {
 			console.log(error);
