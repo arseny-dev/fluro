@@ -20,13 +20,16 @@ app.post('/api/form', function(req, res) {
 	console.log('clicked1');
 	console.log('clicked2');
 	var nodemailer = require('nodemailer');
-	var transporter = nodemailer.createTransport({
-		service: 'gmail',
-		auth: {
-			user: 'arseny910124@gmail.com',
-			pass: 'qwer1234!@#$%^&*('
-		}
-	});
+	var smtpTransport = require('nodemailer-smtp-transport');
+	var transporter = nodemailer.createTransport(
+		smtpTransport({
+			service: 'gmail',
+			auth: {
+				user: 'arseny910124@gmail.com',
+				pass: 'qwer1234!@#$%^&*('
+			}
+		})
+	);
 	console.log(transporter);
 	var mailOptions = {
 		from: req.body.email,
