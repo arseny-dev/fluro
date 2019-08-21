@@ -1,15 +1,10 @@
 var express = require('express');
-var bodyParser = require('body-parser');
-var Mailgun = require('mailgun-js');
 var app = express();
 const cors = require('cors');
 const logger = require('morgan');
 
-var api_key = '90533bcac8b17e228dcd5e6f6392b38c-898ca80e-39ae0c01';
-var domain = 'sandboxf7223b77d29e4d7f8a2876280ff01d3f.mailgun.org';
-
-var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport({
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
 		user: 'arseny910124@gmail.com',
@@ -17,7 +12,7 @@ var transporter = nodemailer.createTransport({
 	}
 });
 console.log(transporter);
-var mailOptions = {
+const mailOptions = {
 	from: req.body.email,
 	to: 'arseny910124@gmail.com',
 	subject: req.body.subject,
