@@ -20,7 +20,6 @@ app.post('/api/form', function(req, res) {
 	console.log('clicked1');
 	console.log('clicked2');
 	var nodemailer = require('nodemailer');
-	var smtpTransport = require('nodemailer-smtp-transport');
 	var transporter = nodemailer.createTransport({
 		host: 'smtp.gmail.com',
 		port: 587,
@@ -30,7 +29,6 @@ app.post('/api/form', function(req, res) {
 			pass: 'qwer1234!@#$%^&*('
 		}
 	});
-	console.log(transporter);
 	var mailOptions = {
 		from: req.body.email,
 		to: 'arseny910124@gmail.com',
