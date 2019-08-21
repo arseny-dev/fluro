@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/api/form', function(req, res) {
-	res.send({ res: 'sdfasfasdfadsfadsf' });
 	var nodemailer = require('nodemailer');
 
 	var transporter = nodemailer.createTransport({
@@ -30,8 +29,6 @@ app.post('/api/form', function(req, res) {
 		}
 	});
 	console.log(transporter);
-	res.send({ res: transporter });
-
 	var mailOptions = {
 		from: req.body.email,
 		to: 'arseny910124@gmail.com',
@@ -39,7 +36,6 @@ app.post('/api/form', function(req, res) {
 		text: req.body.name + ' sent ' + req.body.message
 	};
 	console.log(mailOptions);
-	res.send({ res: mailOptions });
 
 	transporter.sendMail(mailOptions, function(error, info) {
 		if (error) {
