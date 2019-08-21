@@ -3,8 +3,8 @@ var app = express();
 const cors = require('cors');
 const logger = require('morgan');
 
-const nodemailer = require('nodemailer');
-const transporter = nodemailer.createTransport({
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
 		user: 'arseny910124@gmail.com',
@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 	}
 });
 console.log(transporter);
-const mailOptions = {
+var mailOptions = {
 	from: req.body.email,
 	to: 'arseny910124@gmail.com',
 	subject: req.body.subject,
