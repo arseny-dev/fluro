@@ -21,17 +21,15 @@ app.post('/api/form', function(req, res) {
 	console.log('clicked2');
 	var nodemailer = require('nodemailer');
 	var smtpTransport = require('nodemailer-smtp-transport');
-	var transporter = nodemailer.createTransport(
-		smtpTransport({
-			service: 'gmail',
-			secure: false,
-			port: 587,
-			auth: {
-				user: 'arseny910124@gmail.com',
-				pass: 'qwer1234!@#$%^&*('
-			}
-		})
-	);
+	var transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: 587,
+		secure: false, // secure:true for port 465, secure:false for port 587
+		auth: {
+			user: 'arseny910124@gmail.com',
+			pass: 'qwer1234!@#$%^&*('
+		}
+	});
 	console.log(transporter);
 	var mailOptions = {
 		from: req.body.email,
