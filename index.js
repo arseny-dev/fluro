@@ -21,7 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.post('/api/form', function(req, res) {
 	console.log('clicked');
 	console.log(req);
+	console.log('clicked1');
 	var nodemailer = require('nodemailer');
+	console.log('clicked2');
 	var transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
@@ -29,7 +31,6 @@ app.post('/api/form', function(req, res) {
 			pass: 'qwer1234!@#$%^&*('
 		}
 	});
-	console.log('clicked1');
 	console.log(transporter);
 	var mailOptions = {
 		from: req.body.email,
