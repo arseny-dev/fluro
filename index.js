@@ -33,7 +33,7 @@ app.post('/api/form', function(req, res) {
 		from: req.body.email,
 		to: 'arseny910124@gmail.com',
 		subject: req.body.subject,
-		text: req.body.name + ' sent ' + req.body.message
+		text: req.body.email + req.body.name + ' sent ' + req.body.message
 	};
 	console.log(mailOptions);
 	transporter.sendMail(mailOptions, function(error, info) {
