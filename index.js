@@ -24,6 +24,7 @@ app.post('/api/form', function(req, res) {
 	var transporter = nodemailer.createTransport(
 		smtpTransport({
 			service: 'gmail',
+			secure: false,
 			auth: {
 				user: 'arseny910124@gmail.com',
 				pass: 'qwer1234!@#$%^&*('
