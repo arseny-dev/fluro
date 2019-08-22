@@ -18,8 +18,9 @@ app.post('/api/form', function(req, res) {
 	console.log('clicked');
 	console.log(req);
 	console.log('clicked1');
-	console.log('clicked2');
 	var nodemailer = require('nodemailer');
+	console.log('clicked2');
+
 	var transporter = nodemailer.createTransport('SMTP', {
 		service: 'hotmail',
 		auth: {
