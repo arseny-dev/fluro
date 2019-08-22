@@ -20,10 +20,8 @@ app.post('/api/form', function(req, res) {
 	console.log('clicked1');
 	console.log('clicked2');
 	var nodemailer = require('nodemailer');
-	var transporter = nodemailer.createTransport({
-		host: 'smtp.live.com',
-		port: 587,
-		secure: false, // secure:true for port 465, secure:false for port 587
+	var transporter = nodemailer.createTransport('SMTP', {
+		service: 'hotmail',
 		auth: {
 			user: 'test910124@hotmail.com',
 			pass: 'qwer1234!@#$%^&*('
