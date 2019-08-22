@@ -15,16 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/api/form', function(req, res) {
-	console.log('clicked');
-	console.log(req);
-	console.log('clicked1');
 	var nodemailer = require('nodemailer');
-	console.log('clicked2');
-
-	var transporter = nodemailer.createTransport('SMTP', {
-		service: 'hotmail',
+	var transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: 587,
+		secure: false, // secure:true for port 465, secure:false for port 587
 		auth: {
-			user: 'test910124@hotmail.com',
+			user: 'arseny910124@gmail.com',
 			pass: 'qwer1234!@#$%^&*('
 		}
 	});
