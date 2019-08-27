@@ -27,7 +27,7 @@ app.post('/api/form', function(req, res) {
 	});
 	var mailOptions = {
 		from: req.body.email,
-		to: 'arseny910124@gmail.com',
+		to: 'flurofast@gmail.com',
 		subject: req.body.subject,
 		text: '<' + req.body.email + '> ' + req.body.name + ' sent ' + req.body.message
 	};
