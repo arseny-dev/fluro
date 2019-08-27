@@ -3,8 +3,8 @@ import { MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from 'mdbreact';
 import axios from 'axios';
 
 import './style.scss';
-// const api_url = 'http://165.22.33.142:3030/api/form';
-const api_url = 'http://localhost:3030/api/form';
+const api_url = 'http://165.22.33.142:3030/api/form';
+// const api_url = 'http://localhost:3030/api/form';
 class ContactForm extends Component {
 	constructor() {
 		super();
